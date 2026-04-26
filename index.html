@@ -34,19 +34,12 @@
       max-width:350px;
       border-radius:12px;
     }
-
-    #timer {
-      font-size:22px;
-      color:#ff4444;
-      margin-top:10px;
-      font-weight:bold;
-    }
   </style>
 </head>
 
 <body>
 
-<!-- TOPO -->
+<!-- HERO -->
 <div class="section" style="
   background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
   url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');
@@ -63,53 +56,88 @@
 
 <!-- BENEFÍCIOS -->
 <div class="section" style="background:#111;">
-  <h2>💪 O que você vai conquistar:</h2>
-  <p>✔️ Perder gordura</p>
-  <p>✔️ Ganhar massa</p>
-  <p>✔️ Treinar em casa</p>
+  <h2>💪 O que você vai conquistar</h2>
+  <p>✔️ Perder gordura corporal</p>
+  <p>✔️ Ganhar massa muscular</p>
+  <p>✔️ Mais energia no dia a dia</p>
+  <p>✔️ Mais confiança e autoestima</p>
 </div>
 
-<!-- PROVA -->
+<!-- SAÚDE -->
+<div class="section" style="background:#000;">
+  <h2>🧠 Por que isso melhora sua saúde?</h2>
+
+  <div class="card"><b>Menos gordura:</b> melhora disposição e qualidade de vida</div>
+  <div class="card"><b>Mais músculo:</b> acelera metabolismo</div>
+  <div class="card"><b>Rotina ativa:</b> melhora sono e energia</div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div class="section" style="background:#111;">
+  <h2>⚙️ Como funciona</h2>
+
+  <div class="card">📘 Ebook com passo a passo</div>
+  <div class="card">🏠 Treino em casa ou academia</div>
+  <div class="card">🥗 Dicas simples de alimentação</div>
+  <div class="card">📆 Plano de 30 dias</div>
+</div>
+
+<!-- RESULTADOS -->
 <div class="section" style="background:#000;">
   <h2>💬 Resultados</h2>
 
-  <div class="card">"Método simples e direto, já senti diferença."</div>
-  <div class="card">"Consegui manter uma rotina fácil."</div>
-  <div class="card">"Muito melhor do que outras coisas que tentei."</div>
+  <div class="card">"Já senti diferença na primeira semana."</div>
+  <div class="card">"Mais disposição e menos preguiça."</div>
+  <div class="card">"Simples de seguir e funciona."</div>
 </div>
 
-<!-- URGÊNCIA -->
+<!-- COMENTÁRIOS ESTILO REDE SOCIAL -->
 <div class="section" style="background:#111;">
-  <h2>⏳ Oferta por tempo limitado</h2>
-  <p>Essa condição pode sair do ar a qualquer momento:</p>
+  <h2>💬 O que estão dizendo</h2>
 
-  <div id="timer">10:00</div>
+  <div class="card" style="text-align:left;">
+    <b>Lucas R.</b>
+    <p>Comecei faz 2 semanas e já perdi 3kg 🔥</p>
+  </div>
+
+  <div class="card" style="text-align:left;">
+    <b>Amanda S.</b>
+    <p>Gostei porque é simples, dá pra fazer em casa</p>
+  </div>
+
+  <div class="card" style="text-align:left;">
+    <b>Rafael M.</b>
+    <p>Finalmente algo que consegui seguir 💪</p>
+  </div>
+
+  <div class="card" style="text-align:left;">
+    <b>Juliana P.</b>
+    <p>Já senti diferença no corpo e na disposição</p>
+  </div>
+
+  <p style="font-size:12px; color:#aaa;">
+    *Depoimentos ilustrativos. Resultados podem variar.
+  </p>
 </div>
 
-<!-- FINAL -->
+<!-- PROMESSA -->
+<div class="section" style="background:#000;">
+  <h2>🔥 Em 30 dias você pode:</h2>
+  <p>✔️ Reduzir gordura</p>
+  <p>✔️ Ganhar definição</p>
+  <p>✔️ Melhorar seu físico</p>
+  <p>✔️ Criar disciplina</p>
+</div>
+
+<!-- CTA FINAL -->
 <div id="final" class="section" style="background:#000;">
   <h2>🔥 Comece agora</h2>
+  <p>Acesso imediato após a compra</p>
 
   <a href="#">
     <button class="btn">ACESSE AQUI</button>
   </a>
-
-  <p style="color:#aaa;">Acesso imediato após a compra</p>
 </div>
-
-<script>
-  let time = 600;
-
-  setInterval(() => {
-    let min = Math.floor(time / 60);
-    let sec = time % 60;
-
-    document.getElementById("timer").innerHTML =
-      String(min).padStart(2,'0') + ":" + String(sec).padStart(2,'0');
-
-    if (time > 0) time--;
-  }, 1000);
-</script>
 
 </body>
 </html>
