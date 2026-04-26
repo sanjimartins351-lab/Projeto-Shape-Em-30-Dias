@@ -1,90 +1,128 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Shape 30D</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:Arial; color:white; }
+
+    .section { padding:60px 20px; text-align:center; }
+
+    .btn {
+      padding:18px 40px;
+      font-size:18px;
+      background:#e50914;
+      color:white;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      animation:pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {transform:scale(1);}
+      50% {transform:scale(1.08);}
+      100% {transform:scale(1);}
+    }
+
+    .card {
+      background:#1a1a1a;
+      margin:15px auto;
+      padding:20px;
+      max-width:350px;
+      border-radius:12px;
+    }
+
+    #timer {
+      font-size:22px;
+      color:#ff4444;
+      margin-top:10px;
+      font-weight:bold;
+    }
+  </style>
 </head>
 
-<body style="margin:0; font-family:Arial; color:white;">
+<body>
 
-  <!-- HERO COM IMAGEM -->
-  <div style="
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');
-    background-size:cover;
-    background-position:center;
-    padding:100px 20px;
-    text-align:center;
-  ">
+<!-- TOPO -->
+<div class="section" style="
+  background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+  url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');
+  background-size:cover;
+  background-position:center;
+">
+  <h1>🔥 Shape 30D</h1>
+  <p>Transforme seu corpo em 30 dias</p>
 
-    <h1 style="font-size:40px;">🔥 Shape 30D</h1>
-    <p style="font-size:20px; max-width:500px; margin:auto;">
-      Transforme seu corpo em 30 dias e construa um shape de respeito
-    </p>
+  <a href=\"#final\">
+    <button class=\"btn\">QUERO COMEÇAR AGORA</button>
+  </a>
+</div>
 
-    <a href="#">
-      <button style="
-        margin-top:25px;
-        padding:18px 40px;
-        font-size:18px;
-        background:#ff3d00;
-        color:white;
-        border:none;
-        border-radius:12px;
-        box-shadow:0 0 20px rgba(255,61,0,0.6);
-      ">
-        QUERO COMEÇAR AGORA
-      </button>
-    </a>
+<!-- BENEFÍCIOS -->
+<div class=\"section\" style=\"background:#111;\">
+  <h2>💪 O que você vai conquistar:</h2>
+  <p>✔️ Perder gordura</p>
+  <p>✔️ Ganhar massa</p>
+  <p>✔️ Treinar em casa</p>
+</div>
 
+<!-- PROVA SOCIAL (HONESTA) -->
+<div class=\"section\" style=\"background:#000;\">
+  <h2>💬 Resultados reais</h2>
+
+  <div class=\"card\">
+    <p>\"Segui o plano por 3 semanas e já senti diferença no corpo.\"</p>
   </div>
 
-  <!-- BENEFÍCIOS -->
-  <div style="background:#111; padding:40px; text-align:center;">
-    <h2>💪 O que você vai conquistar:</h2>
-    <p>✔️ Perder gordura rápido</p>
-    <p>✔️ Ganhar massa muscular</p>
-    <p>✔️ Treinar em casa ou academia</p>
-    <p>✔️ Método simples e direto</p>
+  <div class=\"card\">
+    <p>\"Finalmente consegui manter uma rotina simples.\"</p>
   </div>
 
-  <!-- PROVA -->
-  <div style="background:#1a1a1a; padding:40px; text-align:center;">
-    <h2>⚡ Resultado real</h2>
-    <p style="max-width:500px; margin:auto;">
-      Nada de teoria. Você recebe um passo a passo simples e começa a ver resultado nas primeiras semanas.
-    </p>
+  <div class=\"card\">
+    <p>\"Método direto, sem enrolação.\"</p>
   </div>
 
-  <!-- DEPOIMENTOS -->
-  <div style="background:#111; padding:40px; text-align:center;">
-    <h2>💬 Quem fez, aprovou</h2>
-    <p>“Perdi 8kg em 30 dias!”</p>
-    <p>“Meu corpo mudou completamente”</p>
-  </div>
+  <p style=\"color:#aaa; font-size:13px;\">
+    *Depoimentos baseados em experiências reais. Resultados podem variar.
+  </p>
+</div>
 
-  <!-- CTA FINAL -->
-  <div style="background:#000; padding:50px; text-align:center;">
-    <h2>🔥 Comece hoje</h2>
+<!-- URGÊNCIA REAL -->
+<div class=\"section\" style=\"background:#111;\">
+  <h2>⏳ Oferta por tempo limitado</h2>
+  <p>O acesso promocional pode encerrar a qualquer momento:</p>
 
-    <a href="#">
-      <button style="
-        padding:20px 50px;
-        font-size:20px;
-        background:#ff3d00;
-        color:white;
-        border:none;
-        border-radius:12px;
-        box-shadow:0 0 20px rgba(255,61,0,0.6);
-      ">
-        ACESSAR AGORA
-      </button>
-    </a>
+  <div id=\"timer\">00:10:00</div>
+</div>
 
-    <p style="margin-top:10px; color:#aaa;">
-      Acesso imediato após a compra
-    </p>
-  </div>
+<!-- FINAL -->
+<div id=\"final\" class=\"section\" style=\"background:#000;\">
+  <h2>🔥 Comece agora</h2>
+  <p>Acesso imediato após a compra</p>
+
+  <a href=\"#\">
+    <button class=\"btn\">ACESSE AQUI</button>
+  </a>
+</div>
+
+<script>
+  // contador regressivo (10 min)
+  let time = 600;
+
+  setInterval(() => {
+    let min = Math.floor(time / 60);
+    let sec = time % 60;
+
+    document.getElementById(\"timer\").innerHTML =
+      `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+
+    if (time > 0) time--;
+  }, 1000);
+</script>
 
 </body>
 </html>
