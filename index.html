@@ -56,68 +56,56 @@
   <h1>🔥 Shape 30D</h1>
   <p>Transforme seu corpo em 30 dias</p>
 
-  <a href=\"#final\">
-    <button class=\"btn\">QUERO COMEÇAR AGORA</button>
+  <a href="#final">
+    <button class="btn">QUERO COMEÇAR AGORA</button>
   </a>
 </div>
 
 <!-- BENEFÍCIOS -->
-<div class=\"section\" style=\"background:#111;\">
+<div class="section" style="background:#111;">
   <h2>💪 O que você vai conquistar:</h2>
   <p>✔️ Perder gordura</p>
   <p>✔️ Ganhar massa</p>
   <p>✔️ Treinar em casa</p>
 </div>
 
-<!-- PROVA SOCIAL (HONESTA) -->
-<div class=\"section\" style=\"background:#000;\">
-  <h2>💬 Resultados reais</h2>
+<!-- PROVA -->
+<div class="section" style="background:#000;">
+  <h2>💬 Resultados</h2>
 
-  <div class=\"card\">
-    <p>\"Segui o plano por 3 semanas e já senti diferença no corpo.\"</p>
-  </div>
-
-  <div class=\"card\">
-    <p>\"Finalmente consegui manter uma rotina simples.\"</p>
-  </div>
-
-  <div class=\"card\">
-    <p>\"Método direto, sem enrolação.\"</p>
-  </div>
-
-  <p style=\"color:#aaa; font-size:13px;\">
-    *Depoimentos baseados em experiências reais. Resultados podem variar.
-  </p>
+  <div class="card">"Método simples e direto, já senti diferença."</div>
+  <div class="card">"Consegui manter uma rotina fácil."</div>
+  <div class="card">"Muito melhor do que outras coisas que tentei."</div>
 </div>
 
-<!-- URGÊNCIA REAL -->
-<div class=\"section\" style=\"background:#111;\">
+<!-- URGÊNCIA -->
+<div class="section" style="background:#111;">
   <h2>⏳ Oferta por tempo limitado</h2>
-  <p>O acesso promocional pode encerrar a qualquer momento:</p>
+  <p>Essa condição pode sair do ar a qualquer momento:</p>
 
-  <div id=\"timer\">00:10:00</div>
+  <div id="timer">10:00</div>
 </div>
 
 <!-- FINAL -->
-<div id=\"final\" class=\"section\" style=\"background:#000;\">
+<div id="final" class="section" style="background:#000;">
   <h2>🔥 Comece agora</h2>
-  <p>Acesso imediato após a compra</p>
 
-  <a href=\"#\">
-    <button class=\"btn\">ACESSE AQUI</button>
+  <a href="#">
+    <button class="btn">ACESSE AQUI</button>
   </a>
+
+  <p style="color:#aaa;">Acesso imediato após a compra</p>
 </div>
 
 <script>
-  // contador regressivo (10 min)
   let time = 600;
 
   setInterval(() => {
     let min = Math.floor(time / 60);
     let sec = time % 60;
 
-    document.getElementById(\"timer\").innerHTML =
-      `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    document.getElementById("timer").innerHTML =
+      String(min).padStart(2,'0') + ":" + String(sec).padStart(2,'0');
 
     if (time > 0) time--;
   }, 1000);
