@@ -11,38 +11,44 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    background:#050505;
-    color:#fff;
     font-family:'Orbitron', sans-serif;
+    color:#fff;
+    background: radial-gradient(circle at top, #111, #000);
 }
 
-/* ANIMAÇÃO */
-.hidden {
-    opacity:0;
-    transform: translateY(40px);
-    transition: 1s;
-}
-.show {
-    opacity:1;
-    transform: translateY(0);
+/* FUNDO DETALHADO */
+body::before {
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 2px,
+        transparent 2px,
+        transparent 10px
+    );
+    z-index:-1;
 }
 
 /* HEADER */
 header {
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 h1 {
     font-size:3em;
     color:#00ffc3;
-    text-shadow:0 0 20px #00ffc3;
+    text-shadow:0 0 25px #00ffc3;
 }
 
+/* BOTÃO */
 .btn {
     display:inline-block;
     margin-top:20px;
-    padding:15px 35px;
+    padding:15px 40px;
     background:#00ffc3;
     color:#000;
     font-weight:bold;
@@ -53,19 +59,18 @@ h1 {
 
 @keyframes pulse {
     0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
+    50%{transform:scale(1.1);}
     100%{transform:scale(1);}
 }
 
-/* SECTIONS */
+/* SEÇÕES */
 section {
-    padding:70px 20px;
+    padding:80px 20px;
     text-align:center;
 }
 
 /* SLIDER */
 .slider {
-    position:relative;
     max-width:600px;
     margin:auto;
     overflow:hidden;
@@ -74,7 +79,7 @@ section {
 
 .slides {
     display:flex;
-    transition:0.6s ease;
+    transition:0.5s;
 }
 
 .slides img {
@@ -87,14 +92,28 @@ section {
 .texto {
     max-width:800px;
     margin:auto;
-    line-height:1.6;
+    line-height:1.7;
     color:#ccc;
 }
 
-/* CONTADOR */
+/* CRONOGRAMA */
+.cronograma {
+    max-width:500px;
+    margin:auto;
+    text-align:left;
+}
+
+.cronograma div {
+    background:#111;
+    padding:15px;
+    margin:10px 0;
+    border-left:5px solid #00ffc3;
+}
+
+/* CONTADOR FIXO */
 #contador {
     color:red;
-    margin-top:10px;
+    margin-top:15px;
     font-size:1.5em;
 }
 
@@ -111,82 +130,103 @@ footer {
 
 <header>
 <h1>SHAPE EM 30 DIAS</h1>
-<p>Você não precisa de sorte. Só precisa de um plano.</p>
+<p>Ou você muda agora… ou continua igual.</p>
 <a href="#comprar" class="btn">COMEÇAR AGORA</a>
-<div id="contador">Restam apenas 5 vagas!</div>
+<div id="contador">⚠️ Restam apenas 5 vagas</div>
 </header>
 
-<section class="hidden">
-<h2>🔥 TREINO DE VERDADE</h2>
+<section>
+<h2>🔥 TREINO REAL</h2>
 
 <div class="slider">
 <div class="slides" id="slides">
 
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-<img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
-<img src="https://images.unsplash.com/photo-1546484959-f4b3b0f47d84">
-<img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
-<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
-<img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285">
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
+<img src="https://picsum.photos/600/400?random=1">
+<img src="https://picsum.photos/600/400?random=2">
+<img src="https://picsum.photos/600/400?random=3">
+<img src="https://picsum.photos/600/400?random=4">
+<img src="https://picsum.photos/600/400?random=5">
+<img src="https://picsum.photos/600/400?random=6">
+<img src="https://picsum.photos/600/400?random=7">
 
 </div>
 </div>
 
 </section>
 
-<section class="hidden">
-<h2>💥 NÃO É SÓ TREINO</h2>
+<section>
+<h2>💥 A VERDADE</h2>
 
 <div class="texto">
-<p>Você não precisa ficar perdido tentando montar treino.</p>
+<p>
+Você já tentou sozinho.
+</p>
 <br>
-<p>Aqui você recebe tudo pronto:</p>
+<p>
+Já começou… e parou.
+</p>
 <br>
-<p>Treino + dieta + estratégia.</p>
+<p>
+O problema nunca foi você.
+Foi a falta de um plano.
+</p>
 <br>
-<p>Você só segue. E evolui.</p>
+<p>
+Agora você tem.
+</p>
 </div>
 
 </section>
 
-<section class="hidden">
-<h2>⚡ EM 30 DIAS...</h2>
+<section>
+<h2>⚡ CRONOGRAMA 24H</h2>
 
-<div class="texto">
-<p>Se você fizer o básico bem feito…</p>
-<br>
-<p>Seu corpo muda.</p>
-<br>
-<p>Sua mente muda.</p>
-<br>
-<p>Sua confiança muda.</p>
+<div class="cronograma">
+
+<div>06:00 — Acordar + hidratação</div>
+<div>07:00 — Café da manhã (dieta pronta)</div>
+<div>12:00 — Almoço equilibrado</div>
+<div>17:00 — Pré-treino</div>
+<div>18:00 — Treino (casa ou academia)</div>
+<div>20:00 — Jantar leve</div>
+<div>23:00 — Descanso (recuperação muscular)</div>
+
 </div>
 
 </section>
 
-<section class="hidden">
+<section>
 <h2>📦 O QUE VOCÊ RECEBE</h2>
 
 <div class="texto">
-<p>✔ Treino para casa</p>
-<p>✔ Treino para academia</p>
+<p>✔ Treino completo (casa + academia)</p>
 <p>✔ Dieta pronta</p>
-<p>✔ Plano completo</p>
-<p>✔ Acesso ilimitado</p>
+<p>✔ Estratégia simples</p>
+<p>✔ Passo a passo</p>
+<p>✔ Acesso vitalício</p>
 </div>
 
 </section>
 
-<section id="comprar" class="hidden">
-<h2>🚀 GARANTA SUA VAGA</h2>
+<section id="comprar">
+<h2>🚀 DECISÃO</h2>
+
+<div class="texto">
+<p>
+Você pode continuar adiando…
+</p>
+<br>
+<p>
+Ou pode começar hoje e ver resultado em 30 dias.
+</p>
+</div>
 
 <a href="https://kiwify.com.br/SEU_LINK_KIWIFY_AQUI" class="btn">
 QUERO MEU SHAPE
 </a>
 
-<p style="margin-top:20px;">ou pague via Pix:</p>
-<p><b>Chave Pix:</b> seuemail@email.com</p>
+<p style="margin-top:20px;">Pix:</p>
+<p><b>Chave:</b> seuemail@email.com</p>
 
 </section>
 
@@ -195,16 +235,6 @@ QUERO MEU SHAPE
 </footer>
 
 <script>
-// ANIMAÇÃO
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-});
-document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-
 // SLIDER
 let index = 0;
 const slides = document.getElementById("slides");
@@ -215,16 +245,6 @@ setInterval(() => {
     if(index >= total) index = 0;
     slides.style.transform = "translateX(-" + (index * 100) + "%)";
 }, 2500);
-
-// CONTADOR
-let vagas = 5;
-setInterval(() => {
-    if(vagas > 1){
-        vagas--;
-        document.getElementById("contador").innerText =
-        "Restam apenas " + vagas + " vagas!";
-    }
-}, 7000);
 </script>
 
 </body>
