@@ -63,7 +63,7 @@ section {
     text-align:center;
 }
 
-/* SLIDES */
+/* SLIDER */
 .slider {
     position:relative;
     max-width:600px;
@@ -74,11 +74,13 @@ section {
 
 .slides {
     display:flex;
-    transition:0.5s;
+    transition:0.6s ease;
 }
 
 .slides img {
     width:100%;
+    height:400px;
+    object-fit:cover;
 }
 
 /* TEXTO */
@@ -115,15 +117,18 @@ footer {
 </header>
 
 <section class="hidden">
-<h2>🔥 O CORPO QUE VOCÊ QUER</h2>
+<h2>🔥 TREINO DE VERDADE</h2>
 
 <div class="slider">
 <div class="slides" id="slides">
 
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
 <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
 <img src="https://images.unsplash.com/photo-1546484959-f4b3b0f47d84">
 <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b">
-<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285">
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
 
 </div>
 </div>
@@ -134,28 +139,13 @@ footer {
 <h2>💥 NÃO É SÓ TREINO</h2>
 
 <div class="texto">
-<p>
-Isso não é mais um treino aleatório da internet.
-</p>
-
+<p>Você não precisa ficar perdido tentando montar treino.</p>
 <br>
-
-<p>
-Você recebe um plano completo, já estruturado, com tudo que precisa:
-treinos organizados + dieta simples + estratégia de evolução.
-</p>
-
+<p>Aqui você recebe tudo pronto:</p>
 <br>
-
-<p>
-Sem precisar pensar. Sem perder tempo. Sem ficar perdido.
-</p>
-
+<p>Treino + dieta + estratégia.</p>
 <br>
-
-<p>
-Você só precisa seguir.
-</p>
+<p>Você só segue. E evolui.</p>
 </div>
 
 </section>
@@ -164,22 +154,13 @@ Você só precisa seguir.
 <h2>⚡ EM 30 DIAS...</h2>
 
 <div class="texto">
-<p>
-Se você realmente focar, seu corpo começa a mudar.
-</p>
-
+<p>Se você fizer o básico bem feito…</p>
 <br>
-
-<p>
-Mais definição, mais disposição, mais confiança.
-</p>
-
+<p>Seu corpo muda.</p>
 <br>
-
-<p>
-Não é milagre.
-É consistência com direção certa.
-</p>
+<p>Sua mente muda.</p>
+<br>
+<p>Sua confiança muda.</p>
 </div>
 
 </section>
@@ -188,10 +169,10 @@ Não é milagre.
 <h2>📦 O QUE VOCÊ RECEBE</h2>
 
 <div class="texto">
-<p>✔ Treino completo para casa</p>
-<p>✔ Treino completo para academia</p>
-<p>✔ Dieta pronta e simples</p>
-<p>✔ Estratégia passo a passo</p>
+<p>✔ Treino para casa</p>
+<p>✔ Treino para academia</p>
+<p>✔ Dieta pronta</p>
+<p>✔ Plano completo</p>
 <p>✔ Acesso ilimitado</p>
 </div>
 
@@ -200,7 +181,9 @@ Não é milagre.
 <section id="comprar" class="hidden">
 <h2>🚀 GARANTA SUA VAGA</h2>
 
-<a href="https://pay.hotmart.com/SEU_LINK_AQUI" class="btn">QUERO MEU SHAPE</a>
+<a href="https://kiwify.com.br/SEU_LINK_KIWIFY_AQUI" class="btn">
+QUERO MEU SHAPE
+</a>
 
 <p style="margin-top:20px;">ou pague via Pix:</p>
 <p><b>Chave Pix:</b> seuemail@email.com</p>
@@ -212,7 +195,7 @@ Não é milagre.
 </footer>
 
 <script>
-// ANIMAÇÃO SCROLL
+// ANIMAÇÃO
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -222,15 +205,16 @@ const observer = new IntersectionObserver(entries => {
 });
 document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
-// SLIDER AUTOMÁTICO
+// SLIDER
 let index = 0;
 const slides = document.getElementById("slides");
+const total = 7;
 
 setInterval(() => {
     index++;
-    if(index > 3) index = 0;
+    if(index >= total) index = 0;
     slides.style.transform = "translateX(-" + (index * 100) + "%)";
-}, 3000);
+}, 2500);
 
 // CONTADOR
 let vagas = 5;
@@ -241,7 +225,6 @@ setInterval(() => {
         "Restam apenas " + vagas + " vagas!";
     }
 }, 7000);
-
 </script>
 
 </body>
