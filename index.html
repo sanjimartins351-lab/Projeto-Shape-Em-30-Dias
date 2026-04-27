@@ -16,7 +16,7 @@ body {
     background: radial-gradient(circle at top, #111, #000);
 }
 
-/* FUNDO DETALHADO */
+/* FUNDO */
 body::before {
     content:"";
     position:fixed;
@@ -32,7 +32,6 @@ body::before {
     z-index:-1;
 }
 
-/* HEADER */
 header {
     text-align:center;
     padding:70px 20px;
@@ -44,7 +43,6 @@ h1 {
     text-shadow:0 0 25px #00ffc3;
 }
 
-/* BOTÃO */
 .btn {
     display:inline-block;
     margin-top:20px;
@@ -63,15 +61,13 @@ h1 {
     100%{transform:scale(1);}
 }
 
-/* SEÇÕES */
 section {
     padding:80px 20px;
     text-align:center;
 }
 
-/* SLIDER */
 .slider {
-    max-width:600px;
+    max-width:650px;
     margin:auto;
     overflow:hidden;
     border-radius:15px;
@@ -84,11 +80,10 @@ section {
 
 .slides img {
     width:100%;
-    height:400px;
+    height:420px;
     object-fit:cover;
 }
 
-/* TEXTO */
 .texto {
     max-width:800px;
     margin:auto;
@@ -96,28 +91,20 @@ section {
     color:#ccc;
 }
 
-/* CRONOGRAMA */
-.cronograma {
-    max-width:500px;
-    margin:auto;
-    text-align:left;
-}
-
-.cronograma div {
+.bloco {
     background:#111;
-    padding:15px;
-    margin:10px 0;
+    padding:20px;
+    margin:15px auto;
+    max-width:600px;
     border-left:5px solid #00ffc3;
 }
 
-/* CONTADOR FIXO */
 #contador {
     color:red;
     margin-top:15px;
     font-size:1.5em;
 }
 
-/* FOOTER */
 footer {
     background:#000;
     padding:20px;
@@ -130,7 +117,7 @@ footer {
 
 <header>
 <h1>SHAPE EM 30 DIAS</h1>
-<p>Ou você muda agora… ou continua igual.</p>
+<p>Você não precisa de motivação… precisa de um plano.</p>
 <a href="#comprar" class="btn">COMEÇAR AGORA</a>
 <div id="contador">⚠️ Restam apenas 5 vagas</div>
 </header>
@@ -141,13 +128,13 @@ footer {
 <div class="slider">
 <div class="slides" id="slides">
 
-<img src="https://picsum.photos/600/400?random=1">
-<img src="https://picsum.photos/600/400?random=2">
-<img src="https://picsum.photos/600/400?random=3">
-<img src="https://picsum.photos/600/400?random=4">
-<img src="https://picsum.photos/600/400?random=5">
-<img src="https://picsum.photos/600/400?random=6">
-<img src="https://picsum.photos/600/400?random=7">
+<img src="https://source.unsplash.com/600x400/?gym,workout">
+<img src="https://source.unsplash.com/600x400/?weightlifting">
+<img src="https://source.unsplash.com/600x400/?fitness,gym">
+<img src="https://source.unsplash.com/600x400/?bodybuilding">
+<img src="https://source.unsplash.com/600x400/?gym,exercise">
+<img src="https://source.unsplash.com/600x400/?fitness,weights">
+<img src="https://source.unsplash.com/600x400/?gym,training">
 
 </div>
 </div>
@@ -155,55 +142,62 @@ footer {
 </section>
 
 <section>
-<h2>💥 A VERDADE</h2>
+<h2>💥 O QUE TEM DENTRO</h2>
+
+<div class="bloco">
+Treinos organizados passo a passo  
+(academia e casa)
+</div>
+
+<div class="bloco">
+Dieta simples pronta  
+(sem complicação)
+</div>
+
+<div class="bloco">
+Estratégia para evolução rápida  
+(em 30 dias)
+</div>
+
+<div class="bloco">
+Método direto  
+(sem enrolação)
+</div>
+
+</section>
+
+<section>
+<h2>⚡ POR QUE FUNCIONA?</h2>
 
 <div class="texto">
 <p>
-Você já tentou sozinho.
+A maioria falha porque não sabe o que fazer.
 </p>
+
 <br>
+
 <p>
-Já começou… e parou.
+Aqui você não pensa.  
+Você só segue.
 </p>
+
 <br>
+
 <p>
-O problema nunca foi você.
-Foi a falta de um plano.
-</p>
-<br>
-<p>
-Agora você tem.
+E quando você segue o plano certo…  
+o resultado vem.
 </p>
 </div>
 
 </section>
 
 <section>
-<h2>⚡ CRONOGRAMA 24H</h2>
-
-<div class="cronograma">
-
-<div>06:00 — Acordar + hidratação</div>
-<div>07:00 — Café da manhã (dieta pronta)</div>
-<div>12:00 — Almoço equilibrado</div>
-<div>17:00 — Pré-treino</div>
-<div>18:00 — Treino (casa ou academia)</div>
-<div>20:00 — Jantar leve</div>
-<div>23:00 — Descanso (recuperação muscular)</div>
-
-</div>
-
-</section>
-
-<section>
-<h2>📦 O QUE VOCÊ RECEBE</h2>
+<h2>🧠 PRA QUEM É</h2>
 
 <div class="texto">
-<p>✔ Treino completo (casa + academia)</p>
-<p>✔ Dieta pronta</p>
-<p>✔ Estratégia simples</p>
-<p>✔ Passo a passo</p>
-<p>✔ Acesso vitalício</p>
+<p>✔ Quer mudar o corpo rápido</p>
+<p>✔ Está cansado de começar e parar</p>
+<p>✔ Quer algo simples e direto</p>
 </div>
 
 </section>
@@ -213,11 +207,13 @@ Agora você tem.
 
 <div class="texto">
 <p>
-Você pode continuar adiando…
+Você pode continuar do mesmo jeito…
 </p>
+
 <br>
+
 <p>
-Ou pode começar hoje e ver resultado em 30 dias.
+Ou começar hoje e ver diferença em 30 dias.
 </p>
 </div>
 
@@ -235,7 +231,6 @@ QUERO MEU SHAPE
 </footer>
 
 <script>
-// SLIDER
 let index = 0;
 const slides = document.getElementById("slides");
 const total = 7;
