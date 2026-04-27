@@ -1,143 +1,205 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Shape 30D</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shape em 30 Dias</title>
 
-  <style>
-    html { scroll-behavior: smooth; }
-    body { margin:0; font-family:Arial; color:white; }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-    .section { padding:60px 20px; text-align:center; }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    .btn {
-      padding:18px 40px;
-      font-size:18px;
-      background:#e50914;
-      color:white;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      animation:pulse 1.5s infinite;
-    }
+body {
+    background:#050505;
+    color:#fff;
+    font-family:'Orbitron', sans-serif;
+}
 
-    @keyframes pulse {
-      0% {transform:scale(1);}
-      50% {transform:scale(1.08);}
-      100% {transform:scale(1);}
-    }
+/* ANIMAÇÃO SCROLL */
+.hidden {
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+.show {
+    opacity:1;
+    transform: translateY(0);
+}
 
-    .card {
-      background:#1a1a1a;
-      margin:15px auto;
-      padding:20px;
-      max-width:350px;
-      border-radius:12px;
-    }
-  </style>
+/* HEADER */
+header {
+    text-align:center;
+    padding:60px 20px;
+    background: radial-gradient(circle, #000, #020202);
+}
+
+h1 {
+    font-size:3em;
+    color:#00ffc3;
+    text-shadow:0 0 20px #00ffc3;
+}
+
+.btn {
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 35px;
+    background:#00ffc3;
+    color:#000;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:10px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+/* SECTIONS */
+section {
+    padding:70px 20px;
+    text-align:center;
+}
+
+/* VIDEO */
+.video iframe {
+    width:90%;
+    max-width:700px;
+    height:400px;
+    border:none;
+}
+
+/* TRANSFORMAÇÃO */
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.card {
+    background:#111;
+    border-radius:10px;
+    overflow:hidden;
+    width:250px;
+    transition:0.3s;
+}
+.card:hover { transform:scale(1.05); }
+
+.card img { width:100%; }
+
+/* DEPOIMENTOS */
+.depoimentos {
+    max-width:800px;
+    margin:auto;
+}
+
+.dep {
+    background:#111;
+    margin:15px 0;
+    padding:20px;
+    border-left:5px solid #00ffc3;
+}
+
+/* CONTADOR */
+#contador {
+    color:red;
+    margin-top:10px;
+    font-size:1.5em;
+}
+
+/* FOOTER */
+footer {
+    padding:20px;
+    background:#000;
+    color:#777;
+    text-align:center;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="section" style="
-  background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-  url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');
-  background-size:cover;
-  background-position:center;
-">
-  <h1>🔥 Shape 30D</h1>
-  <p>Transforme seu corpo em 30 dias</p>
+<header>
+<h1>SHAPE EM 30 DIAS</h1>
+<p>Transforme seu corpo sem desculpas — em casa ou academia</p>
+<a href="#comprar" class="btn">QUERO COMEÇAR AGORA</a>
+<div id="contador">Restam apenas 5 vagas!</div>
+</header>
 
-  <a href="#final">
-    <button class="btn">QUERO COMEÇAR AGORA</button>
-  </a>
+<section class="video hidden">
+<h2>🔥 VEJA A TRANSFORMAÇÃO</h2>
+<iframe src="https://www.youtube.com/embed/UBMk30rjy0o" allowfullscreen></iframe>
+</section>
+
+<section class="hidden">
+<h2>💥 RESULTADOS</h2>
+<div class="grid">
+<div class="card"><img src="https://i.imgur.com/8Km9tLL.jpg"></div>
+<div class="card"><img src="https://i.imgur.com/ZF6s192.jpg"></div>
+<div class="card"><img src="https://i.imgur.com/Y4Xz4jY.jpg"></div>
+<div class="card"><img src="https://i.imgur.com/f0R8F2E.jpg"></div>
 </div>
+</section>
 
-<!-- BENEFÍCIOS -->
-<div class="section" style="background:#111;">
-  <h2>💪 O que você vai conquistar</h2>
-  <p>✔️ Perder gordura corporal</p>
-  <p>✔️ Ganhar massa muscular</p>
-  <p>✔️ Mais energia no dia a dia</p>
-  <p>✔️ Mais confiança e autoestima</p>
+<section class="hidden">
+<h2>💬 DEPOIMENTOS</h2>
+<div class="depoimentos">
+
+<div class="dep">"Em 30 dias perdi 8kg e ganhei definição. Nunca consegui isso antes!" — Lucas</div>
+<div class="dep">"Treinei em casa e mudou meu corpo completamente." — Rafael</div>
+<div class="dep">"Simples, direto e funciona de verdade." — Mariana</div>
+
 </div>
+</section>
 
-<!-- SAÚDE -->
-<div class="section" style="background:#000;">
-  <h2>🧠 Por que isso melhora sua saúde?</h2>
+<section class="hidden">
+<h2>📦 O QUE VOCÊ RECEBE</h2>
+<p>Treinos + Dieta + Estratégia completa</p>
+</section>
 
-  <div class="card"><b>Menos gordura:</b> melhora disposição e qualidade de vida</div>
-  <div class="card"><b>Mais músculo:</b> acelera metabolismo</div>
-  <div class="card"><b>Rotina ativa:</b> melhora sono e energia</div>
-</div>
+<section id="comprar" class="hidden">
+<h2>🚀 GARANTA SUA VAGA</h2>
 
-<!-- COMO FUNCIONA -->
-<div class="section" style="background:#111;">
-  <h2>⚙️ Como funciona</h2>
+<!-- HOTMART -->
+<a href="https://pay.hotmart.com/SEU_LINK_AQUI" class="btn">COMPRAR AGORA</a>
 
-  <div class="card">📘 Ebook com passo a passo</div>
-  <div class="card">🏠 Treino em casa ou academia</div>
-  <div class="card">🥗 Dicas simples de alimentação</div>
-  <div class="card">📆 Plano de 30 dias</div>
-</div>
+<p style="margin-top:15px;">ou pague via PIX:</p>
 
-<!-- RESULTADOS -->
-<div class="section" style="background:#000;">
-  <h2>💬 Resultados</h2>
+<!-- PIX -->
+<p><b>Chave Pix:</b> seuemail@email.com</p>
 
-  <div class="card">"Já senti diferença na primeira semana."</div>
-  <div class="card">"Mais disposição e menos preguiça."</div>
-  <div class="card">"Simples de seguir e funciona."</div>
-</div>
+</section>
 
-<!-- COMENTÁRIOS ESTILO REDE SOCIAL -->
-<div class="section" style="background:#111;">
-  <h2>💬 O que estão dizendo</h2>
+<footer>
+<p>© 2026 Shape em 30 Dias</p>
+</footer>
 
-  <div class="card" style="text-align:left;">
-    <b>Lucas R.</b>
-    <p>Comecei faz 2 semanas e já perdi 3kg 🔥</p>
-  </div>
+<script>
+// ANIMAÇÃO SCROLL
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
 
-  <div class="card" style="text-align:left;">
-    <b>Amanda S.</b>
-    <p>Gostei porque é simples, dá pra fazer em casa</p>
-  </div>
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
-  <div class="card" style="text-align:left;">
-    <b>Rafael M.</b>
-    <p>Finalmente algo que consegui seguir 💪</p>
-  </div>
-
-  <div class="card" style="text-align:left;">
-    <b>Juliana P.</b>
-    <p>Já senti diferença no corpo e na disposição</p>
-  </div>
-
-  <p style="font-size:12px; color:#aaa;">
-    *Depoimentos ilustrativos. Resultados podem variar.
-  </p>
-</div>
-
-<!-- PROMESSA -->
-<div class="section" style="background:#000;">
-  <h2>🔥 Em 30 dias você pode:</h2>
-  <p>✔️ Reduzir gordura</p>
-  <p>✔️ Ganhar definição</p>
-  <p>✔️ Melhorar seu físico</p>
-  <p>✔️ Criar disciplina</p>
-</div>
-
-<!-- CTA FINAL -->
-<div id="final" class="section" style="background:#000;">
-  <h2>🔥 Comece agora</h2>
-  <p>Acesso imediato após a compra</p>
-
-  <a href="#">
-    <button class="btn">ACESSE AQUI</button>
-  </a>
-</div>
+// CONTADOR FAKE
+let vagas = 5;
+setInterval(() => {
+    if(vagas > 1){
+        vagas--;
+        document.getElementById("contador").innerText = 
+        "Restam apenas " + vagas + " vagas!";
+    }
+}, 7000);
+</script>
 
 </body>
 </html>
