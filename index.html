@@ -16,7 +16,6 @@ body {
     background: radial-gradient(circle at top, #111, #000);
 }
 
-/* FUNDO */
 body::before {
     content:"";
     position:fixed;
@@ -66,6 +65,7 @@ section {
     text-align:center;
 }
 
+/* SLIDER */
 .slider {
     max-width:650px;
     margin:auto;
@@ -75,6 +75,7 @@ section {
 
 .slides {
     display:flex;
+    width:300%;
     transition:0.5s;
 }
 
@@ -84,6 +85,7 @@ section {
     object-fit:cover;
 }
 
+/* TEXTO */
 .texto {
     max-width:800px;
     margin:auto;
@@ -123,18 +125,14 @@ footer {
 </header>
 
 <section>
-<h2>🔥 TREINO REAL</h2>
+<h2>🔥 TREINO DE VERDADE</h2>
 
 <div class="slider">
 <div class="slides" id="slides">
 
-<img src="https://pin.it/300TN6cCT">
-<img src="https://source.unsplash.com/600x400/?weightlifting">
-<img src="https://source.unsplash.com/600x400/?fitness,gym">
-<img src="https://source.unsplash.com/600x400/?bodybuilding">
-<img src="https://source.unsplash.com/600x400/?gym,exercise">
-<img src="https://source.unsplash.com/600x400/?fitness,weights">
-<img src="https://source.unsplash.com/600x400/?gym,training">
+<img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<img src="https://images.unsplash.com/photo-1546484959-f4b3b0f47d84">
 
 </div>
 </div>
@@ -144,25 +142,10 @@ footer {
 <section>
 <h2>💥 O QUE TEM DENTRO</h2>
 
-<div class="bloco">
-Treinos organizados passo a passo  
-(academia e casa)
-</div>
-
-<div class="bloco">
-Dieta simples pronta  
-(sem complicação)
-</div>
-
-<div class="bloco">
-Estratégia para evolução rápida  
-(em 30 dias)
-</div>
-
-<div class="bloco">
-Método direto  
-(sem enrolação)
-</div>
+<div class="bloco">Treinos organizados (casa e academia)</div>
+<div class="bloco">Dieta pronta simples</div>
+<div class="bloco">Estratégia de evolução em 30 dias</div>
+<div class="bloco">Método direto e sem enrolação</div>
 
 </section>
 
@@ -170,34 +153,11 @@ Método direto
 <h2>⚡ POR QUE FUNCIONA?</h2>
 
 <div class="texto">
-<p>
-A maioria falha porque não sabe o que fazer.
-</p>
-
+<p>A maioria falha porque não sabe o que fazer.</p>
 <br>
-
-<p>
-Aqui você não pensa.  
-Você só segue.
-</p>
-
+<p>Aqui você só segue.</p>
 <br>
-
-<p>
-E quando você segue o plano certo…  
-o resultado vem.
-</p>
-</div>
-
-</section>
-
-<section>
-<h2>🧠 PRA QUEM É</h2>
-
-<div class="texto">
-<p>✔ Quer mudar o corpo rápido</p>
-<p>✔ Está cansado de começar e parar</p>
-<p>✔ Quer algo simples e direto</p>
+<p>E quando você segue o plano certo… o resultado vem.</p>
 </div>
 
 </section>
@@ -206,15 +166,9 @@ o resultado vem.
 <h2>🚀 DECISÃO</h2>
 
 <div class="texto">
-<p>
-Você pode continuar do mesmo jeito…
-</p>
-
+<p>Ou você continua igual…</p>
 <br>
-
-<p>
-Ou começar hoje e ver diferença em 30 dias.
-</p>
+<p>Ou muda agora.</p>
 </div>
 
 <a href="https://kiwify.com.br/SEU_LINK_KIWIFY_AQUI" class="btn">
@@ -233,13 +187,12 @@ QUERO MEU SHAPE
 <script>
 let index = 0;
 const slides = document.getElementById("slides");
-const total = 7;
 
 setInterval(() => {
     index++;
-    if(index >= total) index = 0;
+    if(index > 2) index = 0;
     slides.style.transform = "translateX(-" + (index * 100) + "%)";
-}, 2500);
+}, 3000);
 </script>
 
 </body>
