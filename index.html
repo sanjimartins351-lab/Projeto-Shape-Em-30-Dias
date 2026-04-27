@@ -6,6 +6,11 @@
     <title>SHAPE EM 30 DIAS | O PROTOCOLO FINAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* A MÁGICA ESTÁ AQUI: ROLAGEM SUAVE */
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --neon-green: #00ff41;
             --academic-gold: #d4af37;
@@ -18,7 +23,6 @@
 
         body {
             background-color: #000;
-            /* IMAGEM DE FUNDO FIXA */
             background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1920');
             background-attachment: fixed;
             background-size: cover;
@@ -77,6 +81,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
             transition: 0.3s;
             clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            cursor: pointer;
         }
 
         .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--neon-green); }
@@ -139,7 +144,8 @@
             height: 300px;
             overflow: hidden;
             margin: 50px 0;
-            border-y: 2px solid var(--neon-green);
+            border-top: 2px solid var(--neon-green);
+            border-bottom: 2px solid var(--neon-green);
         }
 
         .slider-track {
@@ -254,7 +260,7 @@
 
     <footer>
         <p>SHAPE EM 30 DIAS © 2026</p>
-        <p style="font-size: 0.6rem; color: #333; margin-top: 10px;">PROJETO_GITHUB_DISTRIBUTION_V6.0</p>
+        <p style="font-size: 0.6rem; color: #333; margin-top: 10px;">PROJETO_GITHUB_DISTRIBUTION_V6.1</p>
     </footer>
 
     <script>
