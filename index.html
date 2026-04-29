@@ -1,281 +1,74 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHAPE EM 30 DIAS | O PROTOCOLO FINAL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* A MÁGICA ESTÁ AQUI: ROLAGEM SUAVE */
-        html {
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shape em 30 Dias</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+body{background:#0d0d0d;color:#fff;scroll-behavior:smooth}
+section{padding:60px 20px;text-align:center}
+h1,h2{margin-bottom:15px}
+p{color:#ccc}.hero{ background:url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1400') center/cover no-repeat; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; } .hero h1{font-size:2.5rem} .hero p{font-size:1.2rem;margin-bottom:20px}
 
-        :root {
-            --neon-green: #00ff41;
-            --academic-gold: #d4af37;
-            --alert-red: #ff003c;
-            --font-robot: 'Roboto Mono', monospace;
-            --font-tech: 'Orbitron', sans-serif;
-        }
+.btn{ background:#e50914; color:#fff; padding:15px 25px; border:none; border-radius:8px; font-size:1rem; cursor:pointer; animation:pulse 1.5s infinite; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+@keyframes pulse{ 0%{transform:scale(1)} 50%{transform:scale(1.05)} 100%{transform:scale(1)} }
 
-        body {
-            background-color: #000;
-            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1920');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            font-family: var(--font-robot);
-            line-height: 1.8;
-        }
+.grid{ display:grid; grid-template-columns:1fr; gap:20px; max-width:800px; margin:auto }
 
-        /* --- HEADER / HERO --- */
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+.card{ background:#1a1a1a; padding:20px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.5); opacity:0; transform:translateY(30px); transition:0.6s }
 
-        .main-title {
-            font-family: var(--font-tech);
-            font-size: clamp(2.5rem, 10vw, 5rem);
-            line-height: 0.9;
-            background: linear-gradient(to bottom, #fff, var(--neon-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
+.card.show{ opacity:1; transform:translateY(0); }
 
-        .timer-display {
-            display: flex;
-            gap: 15px;
-            margin: 20px 0;
-            font-family: var(--font-tech);
-        }
+.price{ font-size:2rem; color:#e50914; margin:20px 0 }
 
-        .t-box {
-            background: rgba(0, 255, 65, 0.1);
-            border: 1px solid var(--neon-green);
-            padding: 10px;
-            min-width: 80px;
-        }
+footer{ background:#111; padding:20px; font-size:0.9rem; color:#777 }
 
-        .t-box span { font-size: 1.5rem; color: #fff; display: block; }
+@media(min-width:768px){ .hero h1{font-size:3.5rem} .grid{grid-template-columns:1fr 1fr} } </style>
 
-        .btn-cta {
-            background: var(--neon-green);
-            color: #000;
-            padding: 20px 40px;
-            font-family: var(--font-tech);
-            font-size: 1.2rem;
-            font-weight: 900;
-            text-decoration: none;
-            margin-top: 30px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
-            transition: 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-            cursor: pointer;
-        }
-
-        .btn-cta:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--neon-green); }
-
-        /* --- SEÇÕES DE CONTEÚDO --- */
-        section {
-            padding: 100px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            padding: 50px;
-            margin-bottom: 40px;
-            border-radius: 5px;
-        }
-
-        h2 {
-            font-family: var(--font-tech);
-            color: var(--neon-green);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .highlight-text {
-            font-size: 1.5rem;
-            color: var(--academic-gold);
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* --- DETALHES DO PRODUTO --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .feature-item {
-            background: rgba(0,0,0,0.6);
-            padding: 30px;
-            border-bottom: 3px solid var(--neon-green);
-        }
-
-        .feature-item h3 {
-            color: var(--neon-green);
-            margin-bottom: 15px;
-            font-family: var(--font-tech);
-        }
-
-        /* --- SLIDER --- */
-        .slider-section {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            margin: 50px 0;
-            border-top: 2px solid var(--neon-green);
-            border-bottom: 2px solid var(--neon-green);
-        }
-
-        .slider-track {
-            display: flex;
-            width: calc(400px * 10);
-            animation: scroll 20s linear infinite;
-        }
-
-        .slider-track img {
-            width: 400px; height: 300px; object-fit: cover; filter: brightness(0.5);
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-400px * 5)); }
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px;
-            background: #000;
-            border-top: 1px solid #222;
-        }
-
-        .vagas-counter {
-            color: var(--alert-red);
-            font-weight: bold;
-            font-family: var(--font-tech);
-            border: 1px solid var(--alert-red);
-            padding: 5px 15px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-    </style>
 </head>
-<body>
-
-    <header>
-        <p style="letter-spacing: 5px; color: var(--neon-green);">[ SISTEMA ONLINE ]</p>
-        <h1 class="main-title">SHAPE EM 30 DIAS</h1>
-        <p>REALIZE O UPGRADE DO SEU HARDWARE BIOLÓGICO AGORA.</p>
-        
-        <div class="timer-display">
-            <div class="t-box"><span id="h">23</span>H</div>
-            <div class="t-box"><span id="m">59</span>M</div>
-            <div class="t-box"><span id="s">59</span>S</div>
-        </div>
-
-        <div class="vagas-counter">RESTAM APENAS 08 VAGAS</div>
-
-        <a href="#venda" class="btn-cta">QUERO MINHA TRANSFORMAÇÃO</a>
-    </header>
-
-    <section>
-        <div class="card">
-            <span class="highlight-text">JÁ SE OLHOU NO ESPELHO E SE SENTIU MAL?</span>
-            <p>Você se sente cansado, sem energia e descontente com o que vê? A maioria das pessoas passa a vida inteira "tentando" mudar, mas falha porque não tem um código mestre para seguir. </p>
-            <p style="margin-top: 20px; color: var(--neon-green); font-weight: bold;">AQUI VOCÊ IRÁ SE RECONSTRUIR DO ZERO.</p>
-            <p>Este não é apenas mais um e-book de exercícios. É um protocolo de guerra contra a gordura e a mediocridade. Em 30 dias, vamos reprogramar seu metabolismo.</p>
-        </div>
-    </section>
-
-    <div class="slider-section">
-        <div class="slider-track">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2158?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=500">
-            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2158?q=80&w=500">
-        </div>
-    </div>
-
-    <section id="detalhes">
-        <h2>O QUE ESTÁ DENTRO DO PROTOCOLO?</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <h3>// TREINO MONTADO</h3>
-                <p>Divisões exatas para quem treina em academia ou para quem só tem o espaço da sala de casa. Planilhas de carga e repetições.</p>
-            </div>
-            <div class="feature-item">
-                <h3>// DIETA DO DIA A DIA</h3>
-                <p>Nada de comidas caras ou impossíveis. Estratégia nutricional flexível para queimar gordura sem passar fome.</p>
-            </div>
-            <div class="feature-item">
-                <h3>// MUDANÇA EM 30 DIAS</h3>
-                <p>Um cronograma passo a passo. Você saberá exatamente o que fazer no dia 1, no dia 15 e no dia 30 para atingir o ápice.</p>
-            </div>
-            <div class="feature-item">
-                <h3>// SUPORTE VITALÍCIO</h3>
-                <p>O acesso é seu para sempre. Atualizações gratuitas conforme a ciência do esporte evolui.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="venda" style="text-align: center;">
-        <div class="card" style="border: 2px solid var(--neon-green);">
-            <h2>ACESSO IMEDIATO</h2>
-            <p class="highlight-text">TUDO ISSO POR UM VALOR ÚNICO.</p>
-            <p>Garanta uma das 8 vagas restantes antes que o cronômetro chegue a zero e o preço suba.</p>
-            
-            <a href="https://pay.kiwify.com.br/5E7YakA" class="btn-cta" style="display: block; margin: 30px auto;">QUERO MEU SHAPE AGORA</a>
-            
-            <p style="font-size: 0.8rem; margin-top: 20px; color: #888;">Garantia Incondicional de 7 Dias. Sem risco para você.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>SHAPE EM 30 DIAS © 2026</p>
-        <p style="font-size: 0.6rem; color: #333; margin-top: 10px;">PROJETO_GITHUB_DISTRIBUTION_V6.1</p>
-    </footer>
-
-    <script>
-        function timer() {
-            let h = 23, m = 59, s = 59;
-            setInterval(() => {
-                s--;
-                if(s<0){s=59; m--;}
-                if(m<0){m=59; h--;}
-                document.getElementById('h').innerText = h < 10 ? '0'+h : h;
-                document.getElementById('m').innerText = m < 10 ? '0'+m : m;
-                document.getElementById('s').innerText = s < 10 ? '0'+s : s;
-            }, 1000);
-        }
-        timer();
-    </script>
-</body>
+<body><section class="hero">
+<h1>Transforme seu corpo em 30 dias</h1>
+<p>Treino estruturado + dieta simples + estratégia comprovada</p>
+<button class="btn">Quero meu shape agora</button>
+</section><section>
+<h2>Benefícios</h2>
+<div class="grid">
+<div class="card">💪 Ganho de massa muscular</div>
+<div class="card">🔥 Perda de gordura</div>
+<div class="card">⚡ Treinos rápidos e eficientes</div>
+<div class="card">🏠 Sem necessidade de academia avançada</div>
+</div>
+</section><section>
+<h2>Sobre o Produto</h2>
+<p>Um guia completo com treinos detalhados, dieta prática e estratégias para transformar seu corpo em 30 dias.</p>
+</section><section>
+<h2>Resultados Reais</h2>
+<div class="grid">
+<div class="card">"Ganhei 5kg de massa em 1 mês"</div>
+<div class="card">"Perdi barriga e ganhei definição"</div>
+<div class="card">"Simples e funciona de verdade"</div>
+</div>
+</section><section>
+<h2>Oferta Especial</h2>
+<p class="price">R$ 29,90</p>
+<p>Garantia de 7 dias</p>
+<button class="btn">Comprar agora</button>
+</section><section>
+<h2>⚠️ Atenção</h2>
+<p>Acesso imediato após pagamento</p>
+<p>Oferta por tempo limitado</p>
+</section><footer>
+<p>© 2026 Shape em 30 Dias - Todos os direitos reservados</p>
+<p>Contato: seuemail@email.com</p>
+</footer><script>
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', ()=>{
+const trigger = window.innerHeight * 0.85;
+cards.forEach(card=>{
+const top = card.getBoundingClientRect().top;
+if(top < trigger){card.classList.add('show')}
+})
+})
+</script></body>
 </html>
