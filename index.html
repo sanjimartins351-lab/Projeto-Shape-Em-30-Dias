@@ -19,13 +19,12 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-        html { scroll-behavior: smooth; } /* Habilita o deslize suave */
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: var(--font-body);
-            font-weight: 300;
             line-height: 1.5;
             overflow-x: hidden;
         }
@@ -54,33 +53,32 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px 0;
+            padding: 180px 0 100px 0;
             text-align: center;
             background: radial-gradient(circle at 50% 30%, #1e003a 0%, var(--bg-dark) 70%);
         }
 
-        .question-hook {
-            font-size: 1.8rem; font-weight: 700; max-width: 800px; margin: 0 auto 30px auto;
-            background: linear-gradient(90deg, #fff, #bbb);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
         .hero h1 {
-            font-size: 4.5rem; line-height: 1; margin-bottom: 20px;
-            color: white; text-shadow: 0 0 20px var(--primary-purple);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 0 20px var(--primary-purple);
         }
 
         .hero h1 span { color: var(--primary-cyan); text-shadow: 0 0 20px var(--primary-cyan); }
 
         #timer {
-            font-family: var(--font-tech); font-size: 4rem; font-weight: 700;
-            color: var(--scarcity); text-shadow: 0 0 15px rgba(255,0,85,0.5);
+            font-family: var(--font-tech);
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: var(--scarcity);
+            text-shadow: 0 0 15px rgba(255,0,85,0.5);
             margin: 20px 0;
         }
 
         /* Botões */
         .cta-button {
-            display: inline-block; padding: 25px 60px; font-size: 1.6rem;
+            display: inline-block; padding: 25px 60px; font-size: 1.4rem;
             font-family: var(--font-tech); text-decoration: none; font-weight: 700;
             color: #000; background: var(--primary-cyan);
             border-radius: 5px; cursor: pointer; transition: 0.4s;
@@ -90,12 +88,12 @@
 
         .cta-button:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-        /* SLIDER DE FOTOS */
+        /* SLIDER EXTENDIDO */
         .slider-container {
             width: 100%;
-            height: 500px;
+            height: 600px;
             overflow: hidden;
-            margin: 60px 0;
+            margin: 80px 0;
             position: relative;
             border-top: 2px solid var(--primary-cyan);
             border-bottom: 2px solid var(--primary-cyan);
@@ -103,73 +101,106 @@
 
         .slider-track {
             display: flex;
-            width: 400%; /* 4 imagens */
+            width: 600%; /* 6 imagens */
             height: 100%;
-            animation: slide 15s infinite ease-in-out;
+            animation: slide 25s infinite ease-in-out;
         }
 
         .slide {
-            width: 25%;
+            width: 16.66%;
             height: 100%;
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: flex-end;
-            padding: 40px;
+            padding: 60px;
             font-family: var(--font-tech);
             color: var(--primary-cyan);
-            text-shadow: 2px 2px 10px #000;
+            text-shadow: 2px 2px 15px #000;
+            font-size: 1.5rem;
         }
 
         @keyframes slide {
-            0% { transform: translateX(0); }
-            20% { transform: translateX(0); }
-            25% { transform: translateX(-25%); }
-            45% { transform: translateX(-25%); }
-            50% { transform: translateX(-50%); }
-            70% { transform: translateX(-50%); }
-            75% { transform: translateX(-75%); }
-            95% { transform: translateX(-75%); }
+            0%, 15% { transform: translateX(0); }
+            16%, 31% { transform: translateX(-16.66%); }
+            32%, 47% { transform: translateX(-33.33%); }
+            48%, 63% { transform: translateX(-50%); }
+            64%, 79% { transform: translateX(-66.66%); }
+            80%, 95% { transform: translateX(-83.33%); }
             100% { transform: translateX(0); }
         }
 
-        /* Seções de Conteúdo */
-        .pilares { padding: 100px 0; background-color: var(--bg-panel); }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .pilar-card {
-            background: rgba(20, 20, 35, 0.6); padding: 40px;
-            border-radius: 10px; border: 1px solid #333; transition: 0.3s;
-        }
-        .pilar-card:hover { border-color: var(--primary-cyan); }
+        /* Seções Estilizadas */
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+        .section-title span { color: var(--primary-cyan); }
 
-        .garantia { padding: 100px 0; text-align: center; }
-        .garantia-box {
+        /* Módulos */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .module-card {
+            background: var(--bg-panel);
+            padding: 30px;
+            border: 1px solid #222;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .module-card:hover { border-color: var(--primary-purple); background: #0e0f1a; }
+        .module-card h3 { color: var(--primary-cyan); margin-bottom: 10px; font-size: 1.1rem; }
+
+        /* Bônus */
+        .bonus-section { background: linear-gradient(180deg, var(--bg-dark), #150030); }
+        .bonus-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--primary-purple);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
             max-width: 800px; margin: 0 auto;
-            border: 2px dashed var(--primary-purple); padding: 50px;
-            border-radius: 20px; background: rgba(160, 21, 255, 0.05);
         }
 
-        footer { text-align: center; padding: 50px; color: var(--text-muted); border-top: 1px solid #222; }
+        /* FAQ */
+        .faq-item {
+            background: #0d0d15;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .faq-item h4 { font-size: 1rem; color: var(--primary-cyan); }
+        .faq-item p { margin-top: 10px; color: #aaa; display: block; }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            #timer { font-size: 2.5rem; }
-            .cta-button { padding: 15px 30px; font-size: 1.1rem; }
+        /* Garantia Final */
+        .garantia-box {
+            max-width: 900px; margin: 0 auto;
+            border: 2px dashed var(--primary-purple); padding: 60px;
+            border-radius: 30px; background: rgba(160, 21, 255, 0.05);
+            text-align: center;
+        }
+
+        footer { text-align: center; padding: 50px; color: var(--text-muted); border-top: 1px solid #222; font-size: 0.8rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .slide { font-size: 1rem; padding: 30px; }
         }
     </style>
 </head>
 <body>
 
     <div class="scarcity-top-bar">
-        <span class="tech-font">ALERTA:</span> RESTAM APENAS <span id="vagas">10</span> VAGAS!
+        <span class="tech-font">ALERTA:</span> RESTAM APENAS <span id="vagas">10</span> VAGAS NO VALOR PROMOCIONAL!
     </div>
 
     <section class="hero container">
-        <p class="question-hook">Já se cansou de se olhar no espelho e não gostar do que viu?</p>
-        <h1>PROTOCOLO<br><span>SHAPE 30D</span></h1>
+        <p class="tech-font" style="color: var(--primary-cyan); margin-bottom: 10px;">[ ACESSO AO SISTEMA LIBERADO ]</p>
+        <h1>JÁ SE CANSOU DE OLHAR NO ESPELHO E <br><span>NÃO GOSTAR DO QUE VIU?</span></h1>
         <div id="timer">23:59:59</div>
-
-        <button class="cta-button" onclick="document.getElementById('final').scrollIntoView({behavior: 'smooth'})">
+        <button class="cta-button" onclick="document.getElementById('oferta').scrollIntoView({behavior: 'smooth'})">
             INICIAR PROTOCOLO AGORA
         </button>
     </section>
@@ -177,59 +208,108 @@
     <div class="slider-container">
         <div class="slider-track">
             <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop');">
-                METODOLOGIA DE ALTA INTENSIDADE
-            </div>
-            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop');">
-                AMBIENTE DE ALTA PERFORMANCE
-            </div>
-            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1583454110551-21f2fa2adfcd?q=80&w=1470&auto=format&fit=crop');">
-                RESULTADOS REAIS EM 30 DIAS
+                TREINOS DE ALTA PERFORMANCE
             </div>
             <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1453&auto=format&fit=crop');">
-                NUTRIÇÃO SEM RESTRIÇÕES EXTREMAS
+                DIETA SIMPLES E FLEXÍVEL
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1470&auto=format&fit=crop');">
+                ADAPTE O TREINO EM CASA
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=1471&auto=format&fit=crop');">
+                ESTRATÉGIA DE MUDANÇA REAL
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1470&auto=format&fit=crop');">
+                PROTOCOLOS ACADÊMICOS
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=1470&auto=format&fit=crop');">
+                SEU NOVO SHAPE EM 30 DIAS
             </div>
         </div>
     </div>
 
-    <section class="pilares container">
-        <h2 style="text-align: center; margin-bottom: 50px;">A Tríade do Resultado</h2>
-        <div class="grid-3">
-            <div class="pilar-card">
-                <h3 class="tech-font">Treino Montado</h3>
-                <p>Volume e frequência calculados para evolução acelerada.</p>
+    <section class="container">
+        <h2 class="section-title">O QUE VOCÊ VAI <span>DOMINAR</span></h2>
+        <div class="modules-grid">
+            <div class="module-card">
+                <h3>01. MINDSET BLINDADO</h3>
+                <p>Como reprogramar sua mente para nunca mais abandonar um treino.</p>
             </div>
-            <div class="pilar-card">
-                <h3 class="tech-font">Dieta Simples</h3>
-                <p>Estratégia de macros para comer bem e secar a gordura.</p>
+            <div class="module-card">
+                <h3>02. NUTRIÇÃO SEM FOME</h3>
+                <p>O guia para comer o que gosta e ainda assim definir o abdômen.</p>
             </div>
-            <div class="pilar-card">
-                <h3 class="tech-font">Mudança Real</h3>
-                <p>Protocolo mental para manter a constância absoluta.</p>
+            <div class="module-card">
+                <h3>03. TREINO NA ACADEMIA</h3>
+                <p>Fichas completas com as melhores divisões para hipertrofia.</p>
+            </div>
+            <div class="module-card">
+                <h3>04. TREINO EM CASA</h3>
+                <p>Sem desculpas. Protocolos para queimar gordura usando o peso do corpo.</p>
+            </div>
+            <div class="module-card">
+                <h3>05. CICLAGEM DE CARBS</h3>
+                <p>A técnica avançada para acelerar o metabolismo em tempo recorde.</p>
+            </div>
+            <div class="module-card">
+                <h3>06. MANUTENÇÃO</h3>
+                <p>Como manter os resultados após os 30 dias de protocolo.</p>
             </div>
         </div>
     </section>
 
-    <section id="final" class="garantia container">
+    <section class="bonus-section">
+        <div class="container">
+            <div class="bonus-card">
+                <h2 class="tech-font" style="color: var(--primary-cyan);">BÔNUS EXCLUSIVO</h2>
+                <p style="margin: 20px 0; font-size: 1.2rem;">Comprando hoje, você leva o **Guia de Suplementação Barata** - Saiba o que realmente funciona e economize centenas de reais.</p>
+                <span class="tech-font" style="color: #00ff00;">VALOR: DE R$ 97,00 POR R$ 0,00</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">PERGUNTAS <span>FREQUENTES</span></h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <h4>Preciso de suplementos caros?</h4>
+                <p>Não. O protocolo foca em comida de verdade e treino inteligente.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Sou iniciante, serve para mim?</h4>
+                <p>Com certeza. Temos adaptações para quem está começando do zero.</p>
+            </div>
+            <div class="faq-item">
+                <h4>O acesso é vitalício?</h4>
+                <p>Sim! Você compra uma vez e o conteúdo é seu para sempre.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="container">
         <div class="garantia-box">
-            <h2 class="tech-font">Sua Transformação Começa Agora</h2>
-            <p style="margin: 20px 0; font-size: 1.2rem;">Tenha acesso imediato ao e-book, treinos e bônus exclusivos.</p>
+            <h2 class="tech-font" style="font-size: 2.2rem;">ACESSO AO PROTOCOLO <br><span style="color: var(--primary-cyan);">SHAPE 30D</span></h2>
+            <p style="margin: 30px 0; font-size: 1.3rem;">De <strike>R$ 197,00</strike> por apenas:</p>
+            <h1 style="font-size: 4rem; color: #fff; margin-bottom: 10px;">R$ 47,90</h1>
+            <p style="color: var(--primary-cyan); margin-bottom: 40px;">Ou 5x de R$ 10,15*</p>
             
-            <a href="SEU_LINK_DE_PAGAMENTO_AQUI" class="cta-button" style="background: var(--primary-purple); color: #fff; box-shadow: 0 0 30px rgba(160, 21, 255, 0.5);">
-                QUERO MEU ACESSO AGORA
+            <a href="SEU_LINK_DE_PAGAMENTO_AQUI" class="cta-button">
+                QUERO MEU SHAPE AGORA
             </a>
             
-            <p style="margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
-                Garantia Blindada de 7 Dias: Se não gostar, devolvemos seu dinheiro.
+            <p style="margin-top: 40px; font-size: 0.9rem; color: var(--text-muted);">
+                🔒 Pagamento Seguro | 7 Dias de Garantia Incondicional
             </p>
         </div>
     </section>
 
     <footer>
-        [ SYSTEM DIVISION ] &copy; 2026 Biocorp Technologies.
+        [ UNIDADE DE PERFORMANCE ] &copy; 2026 Biocorp Technologies. <br>
+        Este produto não substitui o acompanhamento médico ou nutricional.
     </footer>
 
     <script>
-        // Timer Regressivo
+        // Timer
         let time = 86399;
         const timerElement = document.getElementById('timer');
         function updateTimer() {
@@ -242,12 +322,12 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // Escassez de vagas
+        // Vagas
         setTimeout(() => { document.getElementById('vagas').innerText = '7'; }, 10000);
         setTimeout(() => { 
-            document.getElementById('vagas').innerText = '3'; 
+            document.getElementById('vagas').innerText = '2'; 
             document.getElementById('vagas').style.color = '#ff0055';
-        }, 30000);
+        }, 35000);
     </script>
 </body>
 </html>
