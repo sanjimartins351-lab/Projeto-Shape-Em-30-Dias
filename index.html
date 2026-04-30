@@ -19,6 +19,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; } /* Habilita o deslize suave */
 
         body {
             background-color: var(--bg-dark);
@@ -29,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Títulos Tecnológicos */
         h1, h2, h3, h4, .tech-font {
             font-family: var(--font-tech);
             text-transform: uppercase;
@@ -39,7 +39,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* --- Barra de Escassez Superior --- */
+        /* Barra de Escassez */
         .scarcity-top-bar {
             background: linear-gradient(90deg, #1a0000, var(--scarcity), #1a0000);
             text-align: center;
@@ -50,25 +50,15 @@
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
             border-bottom: 2px solid var(--scarcity);
-            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.3);
         }
 
-        /* --- HERO SECTION --- */
+        /* Hero Section */
         .hero {
-            padding: 160px 0 100px 0; /* Espaço para a barra fixa */
+            padding: 160px 0 100px 0;
             text-align: center;
             background: radial-gradient(circle at 50% 30%, #1e003a 0%, var(--bg-dark) 70%);
-            position: relative;
         }
 
-        .hero::before { /* Linha decorativa futurista */
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            transform: translateX(-50%); width: 2px; height: 100px;
-            background: linear-gradient(to top, var(--primary-cyan), transparent);
-        }
-
-        .academic-hook { color: var(--text-muted); font-size: 1rem; margin-bottom: 10px; }
-        
         .question-hook {
             font-size: 1.8rem; font-weight: 700; max-width: 800px; margin: 0 auto 30px auto;
             background: linear-gradient(90deg, #fff, #bbb);
@@ -82,252 +72,182 @@
 
         .hero h1 span { color: var(--primary-cyan); text-shadow: 0 0 20px var(--primary-cyan); }
 
-        .hero-subtitle { font-size: 1.4rem; color: #ccc; max-width: 700px; margin: 0 auto 50px auto; }
-
-        /* --- TIMER --- */
-        .timer-container { margin-bottom: 50px; }
-        .timer-label { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; }
         #timer {
             font-family: var(--font-tech); font-size: 4rem; font-weight: 700;
             color: var(--scarcity); text-shadow: 0 0 15px rgba(255,0,85,0.5);
-            letter-spacing: -2px;
+            margin: 20px 0;
         }
 
-        /* --- BOTÃO CTA PRINCIPAL --- */
-        .cta-wrapper { position: relative; display: inline-block; }
+        /* Botões */
         .cta-button {
             display: inline-block; padding: 25px 60px; font-size: 1.6rem;
             font-family: var(--font-tech); text-decoration: none; font-weight: 700;
             color: #000; background: var(--primary-cyan);
             border-radius: 5px; cursor: pointer; transition: 0.4s;
-            border: 2px solid transparent;
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+            border: none;
         }
 
-        .cta-button:hover {
-            background: transparent; color: var(--primary-cyan);
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 50px rgba(0, 242, 254, 0.8);
-            transform: scale(1.05);
+        .cta-button:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        /* SLIDER DE FOTOS */
+        .slider-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin: 60px 0;
+            position: relative;
+            border-top: 2px solid var(--primary-cyan);
+            border-bottom: 2px solid var(--primary-cyan);
         }
 
-        /* --- SEÇÃO: PILARES CIENTÍFICOS --- */
-        .pilares { padding: 100px 0; background-color: var(--bg-panel); border-top: 1px solid #222; }
-        
-        .section-title {
-            text-align: center; font-size: 2.5rem; margin-bottom: 60px;
-            color: white; text-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-        .section-title span { color: var(--primary-purple); }
-
-        .grid-3 {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        .slider-track {
+            display: flex;
+            width: 400%; /* 4 imagens */
+            height: 100%;
+            animation: slide 15s infinite ease-in-out;
         }
 
+        .slide {
+            width: 25%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            font-family: var(--font-tech);
+            color: var(--primary-cyan);
+            text-shadow: 2px 2px 10px #000;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            45% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            70% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            95% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Seções de Conteúdo */
+        .pilares { padding: 100px 0; background-color: var(--bg-panel); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .pilar-card {
             background: rgba(20, 20, 35, 0.6); padding: 40px;
-            border-radius: 10px; border: 1px solid #333;
-            backdrop-filter: blur(5px); /* Efeito Vidro */
-            position: relative; transition: 0.3s;
+            border-radius: 10px; border: 1px solid #333; transition: 0.3s;
         }
+        .pilar-card:hover { border-color: var(--primary-cyan); }
 
-        .pilar-card:hover { border-color: var(--primary-cyan); transform: translateY(-5px); }
-
-        .pilar-card h3 { color: var(--primary-cyan); margin-bottom: 15px; font-size: 1.4rem; }
-        .pilar-card h4 { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; font-weight: 500;}
-        .pilar-card p { color: #bbb; font-size: 1.1rem; }
-
-        /* --- SEÇÃO: METODOLOGIA ACADÊMICA --- */
-        .metodologia { padding: 100px 0; position: relative; }
-        
-        .metodologia-content {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
-        }
-
-        .method-list { list-style: none; }
-        .method-item {
-            background: var(--bg-panel); padding: 20px; border-radius: 8px;
-            margin-bottom: 20px; border-left: 3px solid var(--primary-purple);
-        }
-        .method-item h4 { color: white; margin-bottom: 5px; font-size: 1.1rem; }
-        .method-item p { color: #aaa; font-size: 1rem; }
-
-        /* --- SEÇÃO: GARANTIA DE RESULTADO --- */
-        .garantia {
-            padding: 80px 0; text-align: center;
-            background: linear-gradient(180deg, var(--bg-dark), #100025);
-            border-top: 1px solid #333;
-        }
+        .garantia { padding: 100px 0; text-align: center; }
         .garantia-box {
-            max-width: 700px; margin: 0 auto;
-            border: 2px dashed var(--primary-purple); padding: 40px;
-            border-radius: 20px; background: rgba(0,0,0,0.3);
-        }
-        .garantia h3 { color: white; font-size: 2rem; margin-bottom: 20px; }
-        .garantia p { color: #ccc; font-size: 1.2rem; margin-bottom: 30px; }
-
-        /* Footer */
-        footer {
-            text-align: center; padding: 50px; color: var(--text-muted);
-            font-size: 0.9rem; border-top: 1px solid #222;
+            max-width: 800px; margin: 0 auto;
+            border: 2px dashed var(--primary-purple); padding: 50px;
+            border-radius: 20px; background: rgba(160, 21, 255, 0.05);
         }
 
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 3rem; }
-            .hero-subtitle { font-size: 1.1rem; }
-            .metodologia-content { grid-template-columns: 1fr; }
-            .metodologia-image { display: none; }
-        }
+        footer { text-align: center; padding: 50px; color: var(--text-muted); border-top: 1px solid #222; }
 
         @media (max-width: 600px) {
-            .question-hook { font-size: 1.3rem; }
             .hero h1 { font-size: 2.2rem; }
-            #timer { font-size: 2.8rem; }
-            .section-title { font-size: 1.8rem; }
+            #timer { font-size: 2.5rem; }
+            .cta-button { padding: 15px 30px; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="scarcity-top-bar">
-        <span class="tech-font">ALERTA DO SISTEMA:</span> RESTAM APENAS <span id="vagas" style="color: white; font-size: 1.3rem; margin: 0 5px;">10</span> VAGAS NA TURMA ATUAL!
+        <span class="tech-font">ALERTA:</span> RESTAM APENAS <span id="vagas">10</span> VAGAS!
     </div>
 
     <section class="hero container">
-        <p class="academic-hook">[ PROTOCOLO DE OTIMIZAÇÃO FISIOLÓGICA v4.1 ]</p>
         <p class="question-hook">Já se cansou de se olhar no espelho e não gostar do que viu?</p>
-        
         <h1>PROTOCOLO<br><span>SHAPE 30D</span></h1>
-        
-        <p class="hero-subtitle">A estratégia de bioengenharia corporal que utiliza estímulos adaptativos precisos e nutrição estratégica para a mudança estética mais rápida do mercado.</p>
-        
-        <div class="timer-container">
-            <p class="timer-label">Oferta expira em:</p>
-            <div id="timer">23:59:59</div>
-        </div>
+        <div id="timer">23:59:59</div>
 
-        <div class="cta-wrapper">
-            <a href="SEU_LINK_AQUI" class="cta-button">INICIAR PROTOCOLO AGORA</a>
+        <button class="cta-button" onclick="document.getElementById('final').scrollIntoView({behavior: 'smooth'})">
+            INICIAR PROTOCOLO AGORA
+        </button>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider-track">
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop');">
+                METODOLOGIA DE ALTA INTENSIDADE
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop');">
+                AMBIENTE DE ALTA PERFORMANCE
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1583454110551-21f2fa2adfcd?q=80&w=1470&auto=format&fit=crop');">
+                RESULTADOS REAIS EM 30 DIAS
+            </div>
+            <div class="slide" style="background-image: linear-gradient(to top, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1453&auto=format&fit=crop');">
+                NUTRIÇÃO SEM RESTRIÇÕES EXTREMAS
+            </div>
+        </div>
+    </div>
+
+    <section class="pilares container">
+        <h2 style="text-align: center; margin-bottom: 50px;">A Tríade do Resultado</h2>
+        <div class="grid-3">
+            <div class="pilar-card">
+                <h3 class="tech-font">Treino Montado</h3>
+                <p>Volume e frequência calculados para evolução acelerada.</p>
+            </div>
+            <div class="pilar-card">
+                <h3 class="tech-font">Dieta Simples</h3>
+                <p>Estratégia de macros para comer bem e secar a gordura.</p>
+            </div>
+            <div class="pilar-card">
+                <h3 class="tech-font">Mudança Real</h3>
+                <p>Protocolo mental para manter a constância absoluta.</p>
+            </div>
         </div>
     </section>
 
-    <section class="pilares">
-        <div class="container">
-            <h2 class="section-title">Tríade de <span>Eficiência</span> Biológica</h2>
+    <section id="final" class="garantia container">
+        <div class="garantia-box">
+            <h2 class="tech-font">Sua Transformação Começa Agora</h2>
+            <p style="margin: 20px 0; font-size: 1.2rem;">Tenha acesso imediato ao e-book, treinos e bônus exclusivos.</p>
             
-            <div class="grid-3">
-                <div class="pilar-card">
-                    <h3 class="tech-font">01. Estímulo Tensionado</h3>
-                    <h4>[ Treino de Força Montado ]</h4>
-                    <p>Divisão de treinamento baseada em volume ótimo e frequência calculada. Foco na tensão mecânica e estresse metabólico para máxima hipertrofia em 30 dias, sem depender de sorte.</p>
-                </div>
-                
-                <div class="pilar-card">
-                    <h3 class="tech-font">02. Aporte Nutricional</h3>
-                    <h4>[ Dieta Estratégica ]</h4>
-                    <p>Nutrição quantitativa simplificada. Uma estratégia de macros flexíveis onde você consome nutrientes necessários para síntese proteica e oxidação de gordura, sem passar fome e sem restrições extremas.</p>
-                </div>
-                
-                <div class="pilar-card">
-                    <h3 class="tech-font">03. Resiliência Neuroquímica</h3>
-                    <h4>[ Estratégia de Mudança ]</h4>
-                    <p>Técnicas de reprogramação comportamental para blindar sua mentalidade. O protocolo inclui ferramentas para gerenciar dopamina e manter a aderência total, evitando o efeito sanfona.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="metodologia container">
-        <h2 class="section-title">Metodologia <span>Sistêmica</span></h2>
-        
-        <div class="metodologia-content">
-            <div class="method-list">
-                <div class="method-item">
-                    <h4>Análise do Biotipo</h4>
-                    <p>Entenda seu ponto de partida para ajustar a agressividade do déficit calórico.</p>
-                </div>
-                <div class="method-item">
-                    <h4>Periodização Linear</h4>
-                    <p>O treino evolui a cada semana, garantindo que o corpo não se adapte e pare de responder.</p>
-                </div>
-                <div class="method-item">
-                    <h4>Ciclagem de Carboidratos</h4>
-                    <p>Estratégia para manter o metabolismo acelerado mesmo em queima de gordura.</p>
-                </div>
-                <div class="method-item">
-                    <h4>Suplementação Baseada em Evidência</h4>
-                    <p>O que realmente funciona, sem desperdício de dinheiro.</p>
-                </div>
-            </div>
+            <a href="SEU_LINK_DE_PAGAMENTO_AQUI" class="cta-button" style="background: var(--primary-purple); color: #fff; box-shadow: 0 0 30px rgba(160, 21, 255, 0.5);">
+                QUERO MEU ACESSO AGORA
+            </a>
             
-            <div class="metodologia-image" style="background: rgba(255,255,255,0.03); height: 400px; border-radius: 20px; border: 1px solid #222; display: flex; align-items: center; justify-content: center; color: #444; font-family: var(--font-tech);">
-                [ ESPAÇO PARA GRÁFICO OU CAPA ]
-            </div>
-        </div>
-    </section>
-
-    <section class="garantia">
-        <div class="container">
-            <div class="garantia-box">
-                <h3 class="tech-font">Garantia Blindada</h3>
-                <p>Nós assumimos o risco. Se você aplicar o Protocolo Shape 30D e não notar mudança visual significativa ou melhoria em seus marcadores de performance em 7 dias, nós devolvemos 100% do seu investimento. Sem perguntas.</p>
-                
-                <div class="cta-wrapper">
-                    <a href="SEU_LINK_AQUI" class="cta-button" style="padding: 20px 40px; font-size: 1.3rem;">GARANTIR MINHA VAGA</a>
-                </div>
-            </div>
+            <p style="margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
+                Garantia Blindada de 7 Dias: Se não gostar, devolvemos seu dinheiro.
+            </p>
         </div>
     </section>
 
     <footer>
-        [ SYSTEM DIVISION ] &copy; 2026 Biocorp Technologies. Todos os direitos reservados.<br>
-        Resultados podem variar. A consulta com profissionais de saúde é recomendada.
+        [ SYSTEM DIVISION ] &copy; 2026 Biocorp Technologies.
     </footer>
 
     <script>
-        // --- 1. Contador Regressivo Futurista ---
-        let time = 86399; // 23:59:59 em segundos
+        // Timer Regressivo
+        let time = 86399;
         const timerElement = document.getElementById('timer');
-
         function updateTimer() {
-            let hours = Math.floor(time / 3600);
-            let minutes = Math.floor((time % 3600) / 60);
-            let seconds = time % 60;
-
-            // Adiciona zero à esquerda se for menor que 10
-            hours = hours < 10 ? '0' + hours : hours;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            timerElement.innerHTML = `${hours}:${minutes}:${seconds}`;
-            
-            if (time > 0) {
-                time--;
-            } else {
-                timerElement.innerHTML = "00:00:00"; // Tempo esgotado
-            }
+            let h = Math.floor(time / 3600);
+            let m = Math.floor((time % 3600) / 60);
+            let s = time % 60;
+            timerElement.innerHTML = `${h < 10 ? '0'+h : h}:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}`;
+            if (time > 0) time--;
         }
+        setInterval(updateTimer, 1000);
+        updateTimer();
 
-        setInterval(updateTimer, 1000); // Atualiza a cada 1 segundo
-        updateTimer(); // Roda a primeira vez imediatamente
-
-
-        // --- 2. Simulação de Vagas (Efeito Social Profissional) ---
-        // Diminui as vagas devagar para parecer real
-        setTimeout(() => {
-            document.getElementById('vagas').innerText = '9';
-            document.getElementById('vagas').style.color = '#ff4444'; // Pisca vermelho
-        }, 15000); // 15 segundos depois muda pra 9
-
-        setTimeout(() => {
-            document.getElementById('vagas').innerText = '7';
-        }, 45000); // 45 segundos depois muda pra 7
-        
-        setTimeout(() => {
-            document.getElementById('vagas').innerText = '4';
-            document.getElementById('vagas').style.fontWeight = '900';
-        }, 90000); // 90 segundos depois muda pra 4
+        // Escassez de vagas
+        setTimeout(() => { document.getElementById('vagas').innerText = '7'; }, 10000);
+        setTimeout(() => { 
+            document.getElementById('vagas').innerText = '3'; 
+            document.getElementById('vagas').style.color = '#ff0055';
+        }, 30000);
     </script>
 </body>
 </html>
